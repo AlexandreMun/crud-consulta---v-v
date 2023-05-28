@@ -1,12 +1,12 @@
 import './Login.css';
 import { Box, Button, TextField, Typography } from '@material-ui/core';
 
-export default function Login() {
+export default function SaveUser() {
   return (
     <Box className='page'>
       <Box className='card'>
         <Typography variant='h4'>
-          Clínica Universit
+          Crie sua conta
         </Typography>
         <TextField
           className='field'
@@ -19,11 +19,13 @@ export default function Login() {
           type='password'
           variant='filled'
         />
-        <Button className='field'>Entrar</Button>
-        <Typography variant='caption'>
-          Não possui conta? clique em
-          <a href='cadastre-se'> cadastrar</a>
-        </Typography>
+        <TextField
+          className='field'
+          label='Repita sua senha'
+          type='password'
+          variant='filled'
+        />
+        <Button className='field'>Criar</Button>
       </Box>
     </Box>
   );

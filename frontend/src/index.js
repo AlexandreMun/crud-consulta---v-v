@@ -4,11 +4,16 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Login from './Login';
+import SaveUser from './SaveUser';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Login />
+  },
+  {
+    path: '/cadastre-se',
+    element: <SaveUser />
   },
   {
     path: '/consultas',
