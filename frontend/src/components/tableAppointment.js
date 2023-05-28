@@ -31,7 +31,6 @@ export default function Infos(props) {
         setlistAppointment={props.setlistAppointment}
       />
       <tr>
-        {/* <td>{props.idconsulta}</td> */}
         <td>{props.title}</td>
         <td>{props.patient}</td>
         <td>{props.doctor}</td>
