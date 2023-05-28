@@ -1,6 +1,6 @@
 import './Login.css';
-import { Box, Button, Snackbar, TextField, Typography } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
+import { Box, Button, TextField, Typography } from '@material-ui/core';
+import Alert from './components/Alert';
 import Axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -34,16 +34,7 @@ export default function SaveUser() {
 
   return (
     <Box className='page'>
-      {error &&
-        <Snackbar
-          anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
-          autoHideDuration={2500}
-          open={!!error}
-          onClose={() => setError('')}
-        >
-          <MuiAlert severity='error'>{error}</MuiAlert>
-        </Snackbar>
-      }
+      <Alert error={error} setError={setError} />
       <Box className='card'>
         <Typography variant='h4'>
           Crie sua conta
