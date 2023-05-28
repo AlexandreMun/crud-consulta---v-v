@@ -1,7 +1,18 @@
 import './Login.css';
 import { Box, Button, TextField, Typography } from '@material-ui/core';
+import Axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 export default function SaveUser() {
+  const navigate = useNavigate();
+
+  const onSave = () => {
+    Axios.post('http://localhost:3001/create-user', {
+      login: 'a',
+      password: 'b'
+    }).then(() => navigate('/'));
+  };
+
   return (
     <Box className='page'>
       <Box className='card'>
@@ -25,7 +36,7 @@ export default function SaveUser() {
           type='password'
           variant='filled'
         />
-        <Button className='field'>Criar</Button>
+        <Button className='field' onClick={onSave}>Criar</Button>
       </Box>
     </Box>
   );
