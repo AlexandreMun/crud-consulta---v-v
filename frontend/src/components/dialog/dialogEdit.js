@@ -27,10 +27,6 @@ export default function FormDialog(props) {
     handleClose()
   }
 
-  const handleClickOpen = () => {
-    props.setOpen(true);
-  };
-
   const handleClose = () => {
     props.setOpen(false);
   };

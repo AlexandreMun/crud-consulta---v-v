@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s;
+  font-family: 'Poppins';
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: #ccc;
+  width: 22rem;
+  height: 25rem;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 22px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 22px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 22px 0px rgba(0, 0, 0, 0.75);
+}
+
+.field {
+  width: 75%;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.field.MuiButton-root {
+  background-color: #00a7a7;
+}
+
+.field:hover.MuiButton-root {
+  background-color: #00c7c7;
+}
