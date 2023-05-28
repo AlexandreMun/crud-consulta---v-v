@@ -14,4 +14,6 @@ routes.delete("/delete-appointment/:idconsulta", consultaController.delete);
 
 routes.post('/create-user', userController.add);
 
+routes.post('/login', userController.login);
+
 module.exports = routes;
