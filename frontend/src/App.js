@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Axios from "axios";
 import Infos from "./components/tableAppointment";
+import Alert from "./components/Alert";
 
 function App() {
   const [values, setValues] = useState();
   const [listAppointments, setlistAppointments] = useState();
+  const [error, setError] = useState("");
   // pega os valores digitados nos inouts
   const handleChangeValues = (value) => {
     // Pega os valores armazenados com o setValues e adiciona em um objeto
@@ -16,15 +18,26 @@ function App() {
   };
 
   const handleClickAdd = () => {
-    // Usa axios para enviar os valores para o servidor
-    Axios.post("http://localhost:3001/create-appointment", {
-      title: values.title,
-      patient: values.patient,
-      doctor: values.doctor,
-      date: values.date,
-    }).then(() => {
-      document.location.reload();
-    });
+    if (
+      values === undefined ||
+      !values.title ||
+      !values.patient ||
+      !values.doctor ||
+      !values.date
+    ) {
+      setError("Preencha todos os campos!!");
+    }
+    else {
+      // Usa axios para enviar os valores para o servidor
+      Axios.post("http://localhost:3001/create-appointment", {
+        title: values.title,
+        patient: values.patient,
+        doctor: values.doctor,
+        date: values.date,
+      }).then(() => {
+        document.location.reload();
+      });
+    }
   };
 
   // Usa axios para pegar os dados do servidor
@@ -36,6 +49,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <Alert error={error} setError={setError} />
       <div className="appointment-container">
         <h1>Consultas</h1>
 
