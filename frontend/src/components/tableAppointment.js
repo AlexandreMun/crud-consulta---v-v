@@ -1,27 +1,25 @@
 import React, { useState } from "react";
 import FormDialogEdit from "./dialog/dialogEdit";
+import FormDialogDelete from "./dialog/dialogDelete";
 import Axios from "axios";
 
 export default function Infos(props) {
-  const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
 
   const handleClickEdit = () => {
-    setOpen(true);
+    setOpenEdit(true);
   };
 
-  const handleDeleteAppointment = () => {
-    Axios.delete(
-      `http://localhost:3001/delete-appointment/${props.idconsulta}`
-    ).then(() => {
-      document.location.reload();
-    });
+  const handleClickDelete = () => {
+    setOpenDelete(true);
   };
 
   return (
     <>
       <FormDialogEdit
-        open={open}
-        setOpen={setOpen}
+        open={openEdit}
+        setOpen={setOpenEdit}
         idconsulta={props.idconsulta}
         title={props.title}
         patient={props.patient}
@@ -30,16 +28,33 @@ export default function Infos(props) {
         listAppointment={props.listAppointment}
         setlistAppointment={props.setlistAppointment}
       />
+
+      <FormDialogDelete
+        open={openDelete}
+        setOpen={setOpenDelete}
+        idconsulta={props.idconsulta}
+        title={props.title}
+        patient={props.patient}
+        doctor={props.doctor}
+        date={props.date}
+        listAppointment={props.listAppointment}
+        setlistAppointment={props.setlistAppointment}
+      />
+
       <tr>
         <td>{props.title}</td>
         <td>{props.patient}</td>
         <td>{props.doctor}</td>
         <td>{props.date}</td>
         <td>
-          <button className="btn edit" onClick={() => handleClickEdit()}>Editar</button>
+          <button className="btn edit" onClick={() => handleClickEdit()}>
+            Editar
+          </button>
         </td>
         <td>
-          <button className="btn delete" onClick={handleDeleteAppointment}>Excluir</button>
+          <button className="btn delete" onClick={() => handleClickDelete()}>
+            Excluir
+          </button>
         </td>
       </tr>
     </>
